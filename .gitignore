@@ -1,0 +1,15 @@
+**/build/**/*
+
+.history/
+.idea/
+
+*.sw[p|o]
+
+.gradle/
+
+**/.gradle/**/*
+
+.DS_STORE
+**/out/
+
+.pgdata/

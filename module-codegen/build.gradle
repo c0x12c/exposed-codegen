@@ -1,0 +1,34 @@
+import dev.spartan.Dependencies
+
+plugins {
+  id("com.google.devtools.ksp")
+}
+
+ksp {
+  arg("autoserviceKsp.verify", "true")
+  arg("autoserviceKsp.verbose", "true")
+}
+
+dependencies {
+  implementation(project(":module-api"))
+
+  implementation(Dependencies.Codegen.ksp)
+  implementation(Dependencies.Codegen.kotlinPoet)
+  implementation(Dependencies.Codegen.kotlinPoetKsp)
+
+  implementation(Dependencies.Codegen.autoService)
+  implementation(Dependencies.Codegen.autoServiceAnnotation)
+  implementation(Dependencies.Codegen.ksp)
+  implementation(Dependencies.Codegen.kotlinPoet)
+  implementation(Dependencies.Codegen.kotlinPoetKsp)
+
+  implementation(Dependencies.Exposed.core)
+  implementation(Dependencies.Exposed.jdbc)
+  implementation(Dependencies.Exposed.dao)
+  implementation(Dependencies.Exposed.javaTime)
+
+  ksp(Dependencies.Codegen.autoServiceKsp)
+
+  testImplementation(Dependencies.Codegen.kotlinCompileTestingKsp)
+  testImplementation(Dependencies.Codegen.kotlinCompileTesting)
+}

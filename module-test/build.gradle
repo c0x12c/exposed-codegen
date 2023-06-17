@@ -1,0 +1,19 @@
+import dev.spartan.Dependencies
+
+plugins {
+  id("com.google.devtools.ksp")
+}
+
+dependencies {
+  implementation(project(":module-api"))
+  ksp(project(":module-codegen"))
+
+  implementation(Dependencies.Exposed.core)
+  implementation(Dependencies.Exposed.jdbc)
+  implementation(Dependencies.Exposed.dao)
+  implementation(Dependencies.Exposed.javaTime)
+
+  testImplementation(Dependencies.Database.postgisJdbc)
+  testImplementation(Dependencies.Database.postgresql)
+  testImplementation(Dependencies.Database.hikari)
+}
