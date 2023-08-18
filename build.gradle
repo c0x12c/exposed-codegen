@@ -59,43 +59,45 @@ subprojects { p ->
     }
   }
 
-  publishing {
-    publications {
-      mavenJava(MavenPublication) {
-        from(components["java"])
-        afterEvaluate {
-          artifactId = p.name
-          group = group
-          version = version
-        }
+  if (p.name != "module-test") {
+    publishing {
+      publications {
+        mavenJava(MavenPublication) {
+          from(components["java"])
+          afterEvaluate {
+            artifactId = p.name
+            group = group
+            version = version
+          }
 
-        pom {
-          name = p.name
-          url = "https://github.com/c0x12c/exposed-codegen"
-          description = "Generate CRUD for Exposed entities"
-          licenses {
-            license {
-              name = "Apache License, Version 2.0"
+          pom {
+            name = p.name
+            url = "https://github.com/c0x12c/exposed-codegen"
+            description = "Generate CRUD for Exposed entities"
+            licenses {
+              license {
+                name = "Apache License, Version 2.0"
+              }
             }
-          }
-          developers {
-            developer {
-              id = "spartan-dev"
-              name = "Spartan Dev"
-              email = "chan@c0x12c.com"
+            developers {
+              developer {
+                id = "spartan-dev"
+                name = "Spartan Dev"
+                email = "chan@c0x12c.com"
+              }
             }
-          }
-          scm {
-            connection = "scm:git@github.com:c0x12c/exposed-codegen.git"
-            url = "https://github.com/c0x12c/exposed-codegen.git"
+            scm {
+              connection = "scm:git@github.com:c0x12c/exposed-codegen.git"
+              url = "https://github.com/c0x12c/exposed-codegen.git"
+            }
           }
         }
       }
     }
-  }
 
-  signing {
-    sign publishing.publications["mavenJava"]
+    signing {
+      sign publishing.publications["mavenJava"]
+    }
   }
 }
 
