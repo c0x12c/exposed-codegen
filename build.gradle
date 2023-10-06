@@ -27,7 +27,7 @@ subprojects { p ->
   apply(plugin: "signing")
 
   group = "com.c0x12c.exposed.codegen"
-  version = "1.0.0"
+  version = "1.0.1"
 
   repositories {
     mavenCentral()
