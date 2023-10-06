@@ -16,7 +16,8 @@ class ResultSetConvertMethod(
   private val resultSetClassName = ResultSet::class.asClassName()
 
   override val imports: List<String> = listOf(
-    "org.jetbrains.exposed.sql.transactions.transaction"
+    "org.jetbrains.exposed.sql.transactions.transaction",
+    "spartan.exposed.codegen.asOffsetDateTime"
   )
 
   override fun funSpec(declaration: ClassDeclaration, context: KspContext): List<FunSpec> {
