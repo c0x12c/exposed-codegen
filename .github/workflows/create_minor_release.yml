@@ -1,0 +1,28 @@
+name: Create Minor Release
+
+on:
+  workflow_dispatch:
+
+env:
+  GITHUB_TOKEN: ${{ secrets.PAT }}
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: 'write'
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ env.GITHUB_TOKEN }}
+
+      - name: Bump version
+        run: |
+          git config user.email github-actions@github.com
+          git config user.name github-actions
+          ./tools/create_release.sh minor
