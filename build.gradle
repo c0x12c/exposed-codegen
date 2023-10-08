@@ -5,6 +5,17 @@ plugins {
   id("io.github.gradle-nexus.publish-plugin")
 }
 
+def GROUP = "com.c0x12c.exposed.codegen"
+def RELEASE_VERSION = "1.0.0"
+
+if (System.getenv("RELEASE_VERSION") != null) {
+  RELEASE_VERSION = System.getenv("RELEASE_VERSION")
+  println("Release version: $RELEASE_VERSION")
+}
+
+group = GROUP
+version = RELEASE_VERSION
+
 repositories {
   mavenCentral()
 }
@@ -26,8 +37,8 @@ subprojects { p ->
   apply(plugin: "maven-publish")
   apply(plugin: "signing")
 
-  group = "com.c0x12c.exposed.codegen"
-  version = "1.0.1"
+  group = GROUP
+  version = RELEASE_VERSION
 
   repositories {
     mavenCentral()
@@ -100,4 +111,3 @@ subprojects { p ->
     }
   }
 }
-
