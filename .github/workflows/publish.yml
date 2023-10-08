@@ -89,7 +89,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": ":rocket: *${{ github.event.repository.name }} - Deployed to DEV*"
+                    "text": ":rocket: *${{ github.event.repository.name }} - Published to SonaType*"
                   }
                 },{
                   "type": "section",
@@ -121,7 +121,7 @@ jobs:
                       "type": "button",
                       "text": {
                         "type": "plain_text",
-                        "text": "View Site"
+                        "text": "View Maven Repo"
                       },
                       "style": "primary",
                       "url": "${{ env.PROJECT_URL }}"
